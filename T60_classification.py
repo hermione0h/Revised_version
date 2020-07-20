@@ -198,7 +198,7 @@ class class_reverb(nn.Module):
         fc_out2 = self.fc2(fc_out1)
         fc_out2 = self.fc2_batchNorm(fc_out2)
         fc_out2 = self.leakyRelu(fc_out2)
-        
+        # Predict OneHot vector (classification)
         final2 = Func.softmax(self.fc3(fc_out2),dim=1)
         new_final2 = torch.argmax(final2, dim=1)
         #print(new_final2.shape)
@@ -212,7 +212,7 @@ class class_reverb(nn.Module):
         #print(fc_out4.shape)
         fc_out4 = self.fc4_batchNorm(fc_out4)
         fc_out4 = self.leakyRelu(fc_out4)
-        
+        # Predict T60, such as 0.3, 0.4
         final1 = Func.relu(self.fc5(fc_out4))
         final1 = final1.squeeze_()
         #print(final1)
