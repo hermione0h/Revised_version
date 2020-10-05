@@ -190,7 +190,7 @@ optim = torch.optim.Adam(model.parameters(), lr=param.lr)
 
 criterion1 = nn.MSELoss()
 criterion2 = nn.CrossEntropyLoss()
-
+mae = nn.L1Loss()
 
 # In[ ]:
 def get_loss(dl, model):
