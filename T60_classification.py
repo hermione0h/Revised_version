@@ -289,8 +289,8 @@ for epoch in range(1,param.num_epoches):
     val_loss.append(new_dev)
         
         #scheduler.step(devLoss)
-    if devLoss < min_loss:
-        min_loss = devLoss
+    if new_dev < min_loss:
+        min_loss = new_dev
     torch.save({
         'epoch': epoch,
         'model_state_dict': model.state_dict(),
