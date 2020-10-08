@@ -348,7 +348,7 @@ np.savez(save_file,
 PATH = "/N/slate/liyuy/PROJECTS/DEREVERB3/model_13/model_"+ "%.1f" % param.beta + param.new_train+".pt"
 checkpoint = torch.load(PATH)
 model.load_state_dict(checkpoint['model_state_dict'])
-
+save_path = '/N/slate/liyuy/PROJECTS/DEREVERB3/results/train_results/vectors_'+"%.1f"%param.beta+param.new_train+'.npz'
 loss = 0
 correction = 0
 total = 0
