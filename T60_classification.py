@@ -335,12 +335,12 @@ for epoch in range(1,param.num_epoches):
         #scheduler.step(devLoss)
     if new_dev < min_loss:
         min_loss = new_dev
-    torch.save({
-        'epoch': epoch,
-        'model_state_dict': model.state_dict(),
-        'optimizer_state_dict': optim.state_dict(),
-        'loss': min_loss,
-        }, PATH)
+        torch.save({
+            'epoch': epoch,
+            'model_state_dict': model.state_dict(),
+            'optimizer_state_dict': optim.state_dict(),
+            'loss': min_loss,
+            }, PATH)
     if devAccuracy > best_accuracy:
         best_accuracy = devAccuracy
         
