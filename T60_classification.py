@@ -414,7 +414,10 @@ srcc = spearmanr(T60_tru,T60_est)
 out = 'Train MSE Loss of regression:' + '%.9f' % mseloss + ', MAE Loss of regression:'+'%.9f' % maeL1 + ', PCC:' + '%.5f' % pcc[0] + ', SRCC:' + '%.5f' % srcc[0] + ', Accuracy:' + '%.5f' % accuracy 
 file1.write(out + '\n')
 print('Train MSE Loss of regression:{:>.9f}, MAE Loss of regression:{:>.9f}, PCC:{:>.5f}, SRCC:{:>.5f}, Accuracy:{:>.5f}'.format(mseloss,maeL1,pcc[0],srcc[0],accuracy))
-
+conf =  confusion_matrix(target_list, est_list)
+classes = ["0.3","0.4","0.5","0.6","0.7","0.8","0.9","1.0","1.1","1.2","1.3","1.4","1.5"]
+save_file = '/N/slate/liyuy/PROJECTS/DEREVERB3/results/train_results/confusion_'+"%.1f"%param.beta+param.new_train+'.png'
+plot_confusion_matrix(conf,classes,save_file)
 
 
 save_path = '/N/slate/liyuy/PROJECTS/DEREVERB3/results/valid_results/vectors_'+"%.1f"%param.beta+param.new_train+'.npz'
@@ -477,4 +480,7 @@ srcc = spearmanr(T60_tru,T60_est)
 out = 'Valid MSE Loss of regression:' + '%.9f' % mseloss + ', MAE Loss of regression:'+'%.9f' % maeL1 + ', PCC:' + '%.5f' % pcc[0] + ', SRCC:' + '%.5f' % srcc[0] + ', Accuracy:' + '%.5f' % accuracy 
 file1.write(out + '\n')
 print('Valid MSE Loss of regression:{:>.9f}, MAE Loss of regression:{:>.9f}, PCC:{:>.5f}, SRCC:{:>.5f}, Accuracy:{:>.5f}'.format(mseloss,maeL1,pcc[0],srcc[0],accuracy))
-
+conf =  confusion_matrix(target_list, est_list)
+classes = ["0.3","0.4","0.5","0.6","0.7","0.8","0.9","1.0","1.1","1.2","1.3","1.4","1.5"]
+save_file = '/N/slate/liyuy/PROJECTS/DEREVERB3/results/valid_results/confusion_'+"%.1f"%param.beta+param.new_train+'.png'
+plot_confusion_matrix(conf,classes,save_file)
